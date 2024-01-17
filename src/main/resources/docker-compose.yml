@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_URL=jdbc:postgresql://postgres:5432/postgres?currentSchema=public
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USERNAME=postgres
+    networks:
+      - localnet
+  #    volumes:
+  #      - ./database
+  #      - ./database/data:/var/lib/postgresql/data
+
+
+networks:
+  localnet:
